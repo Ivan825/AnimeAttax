@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.setScene(splashScene);
         primaryStage.show();
 
-        // Use PauseTransition to wait for 3 seconds
+        // Use PauseTransition to wait for 2 seconds
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event -> {
             // Fade out the splash screen
