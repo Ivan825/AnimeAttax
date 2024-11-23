@@ -10,65 +10,64 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="505.0" prefWidth="999.0" stylesheets="@../Styles/HomePageStyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.consolecardgame.Controllers.HomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.consolecardgame.Controllers.HomePageController">
    <children>
-      <!-- Background Image -->
-      <ImageView fitHeight="504.0" fitWidth="1036.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="515.0" fitWidth="1005.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../Images/Backgrounds/bgMain.gif" />
          </image>
       </ImageView>
-      <!-- Content -->
-      <AnchorPane prefHeight="582.0" prefWidth="800.0">
+      <StackPane layoutX="10.0" layoutY="10.0" prefHeight="505.0" prefWidth="999.0" stylesheets="@../Styles/HomePageStyle.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="CENTER" layoutX="371.0" layoutY="-12.0" prefHeight="582.0" prefWidth="287.0" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="-12.0">
+            <AnchorPane prefHeight="505.0" prefWidth="999.0">
                <children>
-                  <AnchorPane prefHeight="380.0" prefWidth="361.0">
+                  <VBox alignment="CENTER" layoutX="371.0" layoutY="-12.0" prefHeight="582.0" prefWidth="287.0" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="-12.0">
                      <children>
-                        <!-- Heading Image -->
-                        <ImageView fitHeight="76.0" fitWidth="275.0" layoutX="2.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="37.0">
-                           <image>
-                              <Image url="@../Images/Backgrounds/Heading.png" />
-                           </image>
-                        </ImageView>
-                        <!-- Buttons -->
-                        <HBox alignment="CENTER" layoutX="-1.0" layoutY="277.0" prefHeight="72.0" prefWidth="277.0" AnchorPane.bottomAnchor="31.0">
+                        <AnchorPane prefHeight="381.0" prefWidth="287.0">
                            <children>
-                              <Button fx:id="StartButton" mnemonicParsing="false" prefHeight="23.0" prefWidth="130.0" onAction="#handleStartGame">
-                                 <graphic>
-                                    <ImageView fitHeight="34.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/Backgrounds/StartGame.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="ExitButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" onAction="#handleExit">
-                                 <graphic>
-                                    <ImageView fitHeight="13.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/Backgrounds/Exit.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
+                              <ImageView fitHeight="76.0" fitWidth="275.0" layoutX="2.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="37.0">
+                                 <image>
+                                    <Image url="@../Images/Backgrounds/Heading.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="CENTER" layoutX="-1.0" layoutY="277.0" prefHeight="72.0" prefWidth="277.0" AnchorPane.bottomAnchor="31.0">
+                                 <children>
+                                    <Button fx:id="StartButton" mnemonicParsing="false" onAction="#handleStartGame" prefHeight="23.0" prefWidth="130.0">
+                                       <graphic>
+                                          <ImageView fitHeight="34.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/Backgrounds/StartGame.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="ExitButton" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="125.0">
+                                       <graphic>
+                                          <ImageView fitHeight="13.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/Backgrounds/Exit.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <HBox prefHeight="71.0" prefWidth="281.0">
+                           <children>
+                              <Slider fx:id="VolumeSlider" prefHeight="42.0" prefWidth="279.0">
+                                 <effect>
+                                    <ColorAdjust />
+                                 </effect>
+                              </Slider>
                            </children>
                         </HBox>
                      </children>
-                  </AnchorPane>
-                  <!-- Volume Slider -->
-                  <HBox prefHeight="71.0" prefWidth="281.0">
-                     <children>
-                        <Slider fx:id="VolumeSlider" prefHeight="42.0" prefWidth="279.0">
-                           <effect>
-                              <ColorAdjust />
-                           </effect>
-                        </Slider>
-                     </children>
-                  </HBox>
+                  </VBox>
                </children>
-            </VBox>
+            </AnchorPane>
          </children>
-      </AnchorPane>
+      </StackPane>
    </children>
-</StackPane>
+</AnchorPane>

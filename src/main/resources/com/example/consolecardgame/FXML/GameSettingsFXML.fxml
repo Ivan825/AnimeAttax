@@ -12,113 +12,123 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="505.0" prefWidth="999.0" stylesheets="@../Styles/HomePageStyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.consolecardgame.Controllers.GameSettingsController">
-    <children>
-        <!-- Background Image -->
-        <ImageView fitHeight="505.0" fitWidth="1084.0" mouseTransparent="true" preserveRatio="false">
-            <image>
-                <Image url="@../Images/Backgrounds/bgMain.gif" />
-            </image>
-        </ImageView>
 
-        <!-- Main Content -->
-        <VBox alignment="CENTER" fillWidth="true" spacing="20">
-            <!-- Content Pane -->
-            <StackPane alignment="CENTER">
-                <!-- Step 1: Select Mode -->
-                <AnchorPane fx:id="step1Pane" prefHeight="154.0" prefWidth="1074.0" >
-                    <children>
-                        <VBox alignment="CENTER" layoutX="432.0" layoutY="14.0" spacing="20" AnchorPane.leftAnchor="432.0" AnchorPane.rightAnchor="431.5" AnchorPane.topAnchor="14.0">
-                     <ImageView fitHeight="45.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../Images/Backgrounds/SelectGameMode.png" />
-                        </image>
-                     </ImageView>
-                            <!-- RadioButtons assigned to the ToggleGroup -->
-                            <RadioButton fx:id="humanVsComputerRadioButton">
-                        <toggleGroup>
-                           <ToggleGroup fx:id="modeToggleGroup" />
-                        </toggleGroup>
-                        <graphic>
-                           <ImageView fitHeight="15.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                 <Image url="@../Images/Backgrounds/HumanVsComputer.png" />
-                              </image>
-                           </ImageView>
-                        </graphic></RadioButton>
-                            <RadioButton fx:id="humanVsHumanRadioButton" prefHeight="18.0" prefWidth="176.0" toggleGroup="$modeToggleGroup">
-                        <graphic>
-                           <ImageView fitHeight="16.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                 <Image url="@../Images/Backgrounds/Human%20vs%20Human.png" />
-                              </image>
-                           </ImageView>
-                        </graphic></RadioButton>
-                            <!-- Declare the ToggleGroup -->
-                            <fx:define>
-                                <ToggleGroup fx:id="modeToggleGroup" />
-                            </fx:define>
-                        </VBox>
-                    </children>
-                </AnchorPane>
-
-                <!-- Step 2: Select Number of Rounds -->
-                <AnchorPane fx:id="step2Pane" prefHeight="150.0" prefWidth="1084.0" visible="false">
-                    <children>
-                        <VBox alignment="CENTER" layoutX="390.0" layoutY="-3.0" prefHeight="142.0" prefWidth="287.0" spacing="20">
-                     <ImageView fitHeight="108.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../Images/Backgrounds/NumberOfRounds.png" />
-                        </image>
-                     </ImageView>
-                            <Spinner fx:id="roundsSpinner" />
-                        </VBox>
-                    </children>
-                </AnchorPane>
-
-                <!-- Step 3: Name Players -->
-                <AnchorPane fx:id="step3Pane" prefHeight="230.0" prefWidth="1084.0" visible="false">
-                    <children>
-                        <VBox alignment="CENTER" layoutX="419.0" layoutY="25.0" spacing="20">
-                     <ImageView fitHeight="25.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../Images/Backgrounds/EnterPlayerNames.png" />
-                        </image>
-                     </ImageView>
-                            <TextField fx:id="player1NameField" promptText="Player 1 Name" />
-                            <TextField fx:id="player2NameField" promptText="Player 2 Name" />
-                        </VBox>
-                    </children>
-                </AnchorPane>
-            </StackPane>
-
-            <!-- Navigation Buttons -->
-            <HBox alignment="CENTER" spacing="10">
-                <Button fx:id="backButton" onAction="#handleBack">
-               <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Backgrounds/Back.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-                <Button fx:id="nextButton" onAction="#handleNext">
-               <graphic>
-                  <ImageView fx:id="nextButtonImage" fitHeight="27.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Backgrounds/Next.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-                <Button fx:id="exitButton" onAction="#handleExit">
-               <graphic>
-                  <ImageView fitHeight="27.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Backgrounds/Exitb.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            </HBox>
-        </VBox>
-    </children>
-</StackPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.consolecardgame.Controllers.GameSettingsController">
+   <children>
+      <ImageView fitHeight="505.0" fitWidth="999.0" mouseTransparent="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../Images/Backgrounds/bgMain.gif" />
+         </image>
+      </ImageView>
+      <StackPane prefHeight="505.0" prefWidth="999.0" stylesheets="@../Styles/HomePageStyle.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="505.0" prefWidth="999.0">
+               <children>
+                  <VBox alignment="CENTER" fillWidth="true" prefHeight="506.0" prefWidth="1033.0" spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <StackPane alignment="CENTER" prefHeight="230.0" prefWidth="1011.0">
+                           <children>
+                              <AnchorPane fx:id="step1Pane" prefHeight="230.0" prefWidth="1065.0">
+                                 <children>
+                                    <VBox alignment="CENTER" layoutX="383.0" layoutY="13.0" prefHeight="173.0" prefWidth="208.0" spacing="20" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="408.0" AnchorPane.topAnchor="13.0">
+                                       <children>
+                                          <ImageView fitHeight="45.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/Backgrounds/SelectGameMode.png" />
+                                             </image>
+                                          </ImageView>
+                                          <RadioButton fx:id="humanVsComputerRadioButton">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="modeToggleGroup" />
+                                             </toggleGroup>
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Backgrounds/HumanVsComputer.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </RadioButton>
+                                          <RadioButton fx:id="humanVsHumanRadioButton" prefHeight="18.0" prefWidth="176.0" toggleGroup="$modeToggleGroup">
+                                             <graphic>
+                                                <ImageView fitHeight="16.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Backgrounds/Human%20vs%20Human.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </RadioButton>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="step2Pane" prefHeight="150.0" prefWidth="999.0" visible="false">
+                                 <children>
+                                    <VBox alignment="CENTER" layoutX="390.0" layoutY="-3.0" prefHeight="142.0" prefWidth="287.0" spacing="20">
+                                       <children>
+                                          <ImageView fitHeight="108.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/Backgrounds/NumberOfRounds.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Spinner fx:id="roundsSpinner" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="step3Pane" prefHeight="230.0" prefWidth="999.0" visible="false">
+                                 <children>
+                                    <VBox alignment="CENTER" layoutX="419.0" layoutY="25.0" spacing="20">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/Backgrounds/EnterPlayerNames.png" />
+                                             </image>
+                                          </ImageView>
+                                          <TextField fx:id="player1NameField" promptText="Player 1 Name" />
+                                          <TextField fx:id="player2NameField" promptText="Player 2 Name" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <HBox alignment="CENTER" spacing="10">
+                           <children>
+                              <Button fx:id="backButton" onAction="#handleBack">
+                                 <graphic>
+                                    <ImageView fitHeight="37.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/Backgrounds/Back.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="nextButton" onAction="#handleNext">
+                                 <graphic>
+                                    <ImageView fx:id="nextButtonImage" fitHeight="27.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/Backgrounds/Next.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="exitButton" onAction="#handleExit">
+                                 <graphic>
+                                    <ImageView fitHeight="27.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/Backgrounds/Exitb.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
