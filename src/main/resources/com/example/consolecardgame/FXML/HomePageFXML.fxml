@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.consolecardgame.Controllers.HomePageController">
    <children>
-      <ImageView fitHeight="515.0" fitWidth="1005.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="505.0" fitWidth="999.0" mouseTransparent="true" preserveRatio="false">
          <image>
             <Image url="@../Images/Backgrounds/bgMain.gif" />
          </image>
@@ -21,16 +21,16 @@
          <children>
             <AnchorPane prefHeight="505.0" prefWidth="999.0">
                <children>
-                  <VBox alignment="CENTER" layoutX="371.0" layoutY="-12.0" prefHeight="582.0" prefWidth="287.0" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="-12.0">
+                  <VBox alignment="CENTER" layoutX="279.0" layoutY="-12.0" prefHeight="504.0" prefWidth="419.0" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="-12.0">
                      <children>
-                        <AnchorPane prefHeight="381.0" prefWidth="287.0">
+                        <AnchorPane prefHeight="381.0" prefWidth="383.0">
                            <children>
-                              <ImageView fitHeight="76.0" fitWidth="275.0" layoutX="2.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="37.0">
+                              <ImageView fitHeight="65.0" fitWidth="345.0" layoutX="37.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="62.0">
                                  <image>
                                     <Image url="@../Images/Backgrounds/Heading.png" />
                                  </image>
                               </ImageView>
-                              <HBox alignment="CENTER" layoutX="-1.0" layoutY="277.0" prefHeight="72.0" prefWidth="277.0" AnchorPane.bottomAnchor="31.0">
+                              <HBox alignment="CENTER" layoutX="1.0" layoutY="302.0" prefHeight="122.0" prefWidth="410.0" AnchorPane.bottomAnchor="7.0">
                                  <children>
                                     <Button fx:id="StartButton" mnemonicParsing="false" onAction="#handleStartGame" prefHeight="23.0" prefWidth="130.0">
                                        <graphic>
@@ -54,9 +54,9 @@
                               </HBox>
                            </children>
                         </AnchorPane>
-                        <HBox prefHeight="71.0" prefWidth="281.0">
+                        <HBox prefHeight="71.0" prefWidth="408.0">
                            <children>
-                              <Slider fx:id="VolumeSlider" prefHeight="42.0" prefWidth="279.0">
+                              <Slider fx:id="VolumeSlider" prefHeight="39.0" prefWidth="419.0">
                                  <effect>
                                     <ColorAdjust />
                                  </effect>
