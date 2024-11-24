@@ -1,0 +1,507 @@
+[{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749720"
+  },
+  "Character": "Forger, Anya",
+  "Anime": "Spy x Family",
+  "Attack": 0,
+  "Resilience": 80,
+  "Intelligence": 1,
+  "Buff": 90,
+  "Power": 65,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749721"
+  },
+  "Character": "Osaki, Nana",
+  "Anime": "Nana",
+  "Attack": 0,
+  "Resilience": 70,
+  "Intelligence": 1,
+  "Buff": 88,
+  "Power": 60,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749722"
+  },
+  "Character": "Shiro",
+  "Anime": "No Game No Life",
+  "Attack": 0,
+  "Resilience": 88,
+  "Intelligence": 1,
+  "Buff": 80,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749723"
+  },
+  "Character": "Ayanokouji Kiyotaka",
+  "Anime": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e PV",
+  "Attack": 0,
+  "Resilience": 90,
+  "Intelligence": 1,
+  "Buff": 85,
+  "Power": 80,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749724"
+  },
+  "Character": "Aizen, Sousuke",
+  "Anime": "Bleach",
+  "Attack": 0,
+  "Resilience": 95,
+  "Intelligence": 1,
+  "Buff": 80,
+  "Power": 80,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749725"
+  },
+  "Character": "Lamperouge",
+  "Anime": "Code Geass: Hangyaku no Lelouch",
+  "Attack": 0,
+  "Resilience": 88,
+  "Intelligence": 1,
+  "Buff": 80,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749726"
+  },
+  "Character": "Zeppeli, Gyro",
+  "Anime": "JoJo no Kimyou na Bouken Part 7: Steel Ball Run",
+  "Attack": 0,
+  "Resilience": 88,
+  "Intelligence": 1,
+  "Buff": 80,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749727"
+  },
+  "Character": "Nakano Miku",
+  "Anime": "5-toubun no Hanayome",
+  "Attack": 50,
+  "Resilience": 70,
+  "Intelligence": 0,
+  "Buff": 90,
+  "Power": 60,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749728"
+  },
+  "Character": "Hyuuga, Hinata",
+  "Anime": "Naruto: Shippuuden",
+  "Attack": 70,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 90,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749729"
+  },
+  "Character": "Sakurajima Mai",
+  "Anime": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
+  "Attack": 50,
+  "Resilience": 65,
+  "Intelligence": 0,
+  "Buff": 89,
+  "Power": 65,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574972a"
+  },
+  "Character": "Fujiwara Chika",
+  "Anime": "Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen",
+  "Attack": 70,
+  "Resilience": 70,
+  "Intelligence": 0,
+  "Buff": 88,
+  "Power": 60,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574972b"
+  },
+  "Character": "Takanashi Rikka",
+  "Anime": "Chuunibyou demo Koi ga Shitai!",
+  "Attack": 65,
+  "Resilience": 77,
+  "Intelligence": 0,
+  "Buff": 86,
+  "Power": 60,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574972c"
+  },
+  "Character": "Tokisaki Kurumi",
+  "Anime": "Date A Live II: Kurumi Star Festival",
+  "Attack": 85,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 85,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574972d"
+  },
+  "Character": "Kamado, Nezuko",
+  "Anime": "Kimetsu no Yaiba",
+  "Attack": 80,
+  "Resilience": 55,
+  "Intelligence": 0,
+  "Buff": 84,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574972e"
+  },
+  "Character": "Meruem",
+  "Anime": "Hunter x Hunter (2011)",
+  "Attack": 90,
+  "Resilience": 80,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 80,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574972f"
+  },
+  "Character": "Braun, Gabi",
+  "Anime": "Shingeki no Kyojin: The Final Season",
+  "Attack": 60,
+  "Resilience": 88,
+  "Intelligence": 0,
+  "Buff": 40,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749730"
+  },
+  "Character": "Todoroki, Shouto",
+  "Anime": "Boku no Hero Academia",
+  "Attack": 80,
+  "Resilience": 88,
+  "Intelligence": 0,
+  "Buff": 80,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749731"
+  },
+  "Character": "Saiki, Kusuo",
+  "Anime": "Saiki Kusuo no Ψ-nan",
+  "Attack": 80,
+  "Resilience": 88,
+  "Intelligence": 0,
+  "Buff": 80,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749732"
+  },
+  "Character": "Tachibana, Kanade",
+  "Anime": "Angel Beats!",
+  "Attack": 80,
+  "Resilience": 55,
+  "Intelligence": 0,
+  "Buff": 80,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749733"
+  },
+  "Character": "Freecs Gon",
+  "Anime": "Hunter x Hunter",
+  "Attack": 90,
+  "Resilience": 70,
+  "Intelligence": 0,
+  "Buff": 75,
+  "Power": 45,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749734"
+  },
+  "Character": "Toosaka, Rin",
+  "Anime": "Fate/stay night",
+  "Attack": 85,
+  "Resilience": 55,
+  "Intelligence": 0,
+  "Buff": 75,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749735"
+  },
+  "Character": "Momonga",
+  "Anime": "Overlord",
+  "Attack": 90,
+  "Resilience": 80,
+  "Intelligence": 0,
+  "Buff": 70,
+  "Power": 75,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749736"
+  },
+  "Character": "Kageyama, Shigeo",
+  "Anime": "Mob Psycho 100",
+  "Attack": 90,
+  "Resilience": 80,
+  "Intelligence": 0,
+  "Buff": 70,
+  "Power": 65,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749737"
+  },
+  "Character": "Uchiha, Madara",
+  "Anime": "naruto",
+  "Attack": 90,
+  "Resilience": 76,
+  "Intelligence": 0,
+  "Buff": 70,
+  "Power": 80,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749738"
+  },
+  "Character": "Midoriya, Izuku",
+  "Anime": "Boku no Hero Academia",
+  "Attack": 90,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 85,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749739"
+  },
+  "Character": "Griffith",
+  "Anime": "Kenpuu Denki Berserk",
+  "Attack": 90,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 85,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574973a"
+  },
+  "Character": "Rengoku, Kyoujurou",
+  "Anime": "Kimetsu no Yaiba Movie: Mugen Ressha-hen",
+  "Attack": 90,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 85,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574973b"
+  },
+  "Character": "Phantomhive, Ciel",
+  "Anime": "Kuroshitsuji",
+  "Attack": 90,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574973c"
+  },
+  "Character": "Miyamoto, Musashi",
+  "Anime": "Vagabond",
+  "Attack": 80,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 85,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574973d"
+  },
+  "Character": "Aisaka, Taiga",
+  "Anime": "Toradora!",
+  "Attack": 70,
+  "Resilience": 65,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 85,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574973e"
+  },
+  "Character": "Uzumaki Naruto",
+  "Anime": "Naruto",
+  "Attack": 85,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c5574973f"
+  },
+  "Character": "Uchiha Sasuke",
+  "Anime": "Naruto",
+  "Attack": 85,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749740"
+  },
+  "Character": "Denji",
+  "Anime": "Chainsaw Man",
+  "Attack": 85,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749741"
+  },
+  "Character": "Gilgamesh",
+  "Anime": "Fate/Zero",
+  "Attack": 85,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749742"
+  },
+  "Character": "Okazaki, Tomoya",
+  "Anime": "Clannad",
+  "Attack": 85,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749743"
+  },
+  "Character": "Howl",
+  "Anime": "Howl no Ugoku Shiro",
+  "Attack": 85,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749744"
+  },
+  "Character": "Urahara, Kisuke",
+  "Anime": "Bleach",
+  "Attack": 81,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749745"
+  },
+  "Character": "Yato",
+  "Anime": "Noragami",
+  "Attack": 85,
+  "Resilience": 75,
+  "Intelligence": 0,
+  "Buff": 45,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431fb1c2143e7c55749746"
+  },
+  "Character": "Yeager Eren",
+  "Anime": "Shingeki no Kyojin",
+  "Attack": 90,
+  "Resilience": 65,
+  "Intelligence": 0,
+  "Buff": 35,
+  "Power": 65,
+  "Armor": 0
+}]

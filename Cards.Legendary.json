@@ -1,0 +1,260 @@
+[{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574970a"
+  },
+  "Character": "Hori, Kyouko",
+  "Anime": "Horimiya",
+  "Attack": 70,
+  "Resilience": 75,
+  "Intelligence": 0,
+  "Buff": 98,
+  "Power": 75,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574970b"
+  },
+  "Character": "Himejima, Akeno",
+  "Anime": "High School DxD",
+  "Attack": 70,
+  "Resilience": 75,
+  "Intelligence": 0,
+  "Buff": 95,
+  "Power": 75,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574970c"
+  },
+  "Character": "Yuuki Asuna",
+  "Anime": "Sword Art Online",
+  "Attack": 60,
+  "Resilience": 70,
+  "Intelligence": 0,
+  "Buff": 95,
+  "Power": 70,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574970d"
+  },
+  "Character": "Gremory Rias",
+  "Anime": "High School DxD",
+  "Attack": 75,
+  "Resilience": 50,
+  "Intelligence": 0,
+  "Buff": 95,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574970e"
+  },
+  "Character": "Esdeath",
+  "Anime": "Akame ga Kill!",
+  "Attack": 75,
+  "Resilience": 75,
+  "Intelligence": 0,
+  "Buff": 94,
+  "Power": 75,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574970f"
+  },
+  "Character": "Kirishima, Touka",
+  "Anime": "Tokyo Ghoul",
+  "Attack": 75,
+  "Resilience": 75,
+  "Intelligence": 0,
+  "Buff": 90,
+  "Power": 75,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749710"
+  },
+  "Character": "Sung, Jin-Woo",
+  "Anime": "solo leveling",
+  "Attack": 90,
+  "Resilience": 88,
+  "Intelligence": 0,
+  "Buff": 80,
+  "Power": 50,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749711"
+  },
+  "Character": "Ryuk",
+  "Anime": "Death Note",
+  "Attack": 84,
+  "Resilience": 100,
+  "Intelligence": 0,
+  "Buff": 75,
+  "Power": 65,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749712"
+  },
+  "Character": "Monkey .D. Luffy",
+  "Anime": "One Piece",
+  "Attack": 90,
+  "Resilience": 95,
+  "Intelligence": 0,
+  "Buff": 75,
+  "Power": 85,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749713"
+  },
+  "Character": "Saitama",
+  "Anime": "One Punch Man",
+  "Attack": 95,
+  "Resilience": 76,
+  "Intelligence": 0,
+  "Buff": 70,
+  "Power": 70,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749714"
+  },
+  "Character": "Koro-sensei",
+  "Anime": "Ansatsu Kyoushitsu: Jump Festa 2013 Special",
+  "Attack": 90,
+  "Resilience": 90,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749715"
+  },
+  "Character": "Gojou Satoru",
+  "Anime": "Jujutsu Kaisen",
+  "Attack": 90,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749716"
+  },
+  "Character": "Son, Gokuu",
+  "Anime": "Dragon Ball",
+  "Attack": 90,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 65,
+  "Power": 83,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749717"
+  },
+  "Character": "Asta",
+  "Anime": "Black Clover",
+  "Attack": 82,
+  "Resilience": 98,
+  "Intelligence": 0,
+  "Buff": 60,
+  "Power": 75,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749718"
+  },
+  "Character": "Roronoa Zoro",
+  "Anime": "One Piece",
+  "Attack": 80,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 60,
+  "Power": 100,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c55749719"
+  },
+  "Character": "Zoë Hange",
+  "Anime": "Shingeki no Kyojin",
+  "Attack": 80,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 60,
+  "Power": 100,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574971a"
+  },
+  "Character": "Suzumiya, Haruhi",
+  "Anime": "Suzumiya Haruhi no Yuuutsu",
+  "Attack": 80,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 60,
+  "Power": 100,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574971b"
+  },
+  "Character": "Elric, Alphonse",
+  "Anime": "Fullmetal Alchemist",
+  "Attack": 80,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 60,
+  "Power": 100,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574971c"
+  },
+  "Character": "Kuujou, Joutarou",
+  "Anime": "JoJo no Kimyou na Bouken: Adventure",
+  "Attack": 80,
+  "Resilience": 85,
+  "Intelligence": 0,
+  "Buff": 60,
+  "Power": 88,
+  "Armor": 0
+},
+{
+  "_id": {
+    "$oid": "67431f93c2143e7c5574971d"
+  },
+  "Character": "Ban",
+  "Anime": "Nanatsu no Taizai",
+  "Attack": 80,
+  "Resilience": 65,
+  "Intelligence": 0,
+  "Buff": 40,
+  "Power": 100,
+  "Armor": 0
+}]
