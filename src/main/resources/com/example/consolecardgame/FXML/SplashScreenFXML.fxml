@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="rootPane" prefHeight="505.0" prefWidth="999.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.consolecardgame.Controllers.SplashScreenController">
+    <children>
+        <!-- Background Image -->
+        <ImageView fitHeight="600.0" fitWidth="800.0" preserveRatio="true">
+            <image>
+                <Image url="@../Images/Backgrounds/SplashImage.png" />
+            </image>
+        </ImageView>
+
+    </children>
+</StackPane>
