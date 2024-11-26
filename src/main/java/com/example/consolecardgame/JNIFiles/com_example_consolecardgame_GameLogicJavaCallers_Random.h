@@ -10,9 +10,9 @@ extern "C" {
 /*
  * Class:     com_example_consolecardgame_GameLogicJavaCallers_Random
  * Method:    getRandomCharacter
- * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ * Signature: (Ljava/lang/String;)Ljava/util/ArrayList;
  */
-JNIEXPORT jstring JNICALL Java_com_example_consolecardgame_GameLogicJavaCallers_Random_getRandomCharacter
+JNIEXPORT jobject JNICALL Java_com_example_consolecardgame_GameLogicJavaCallers_Random_getRandomCharacter
   (JNIEnv *, jobject, jstring);
 
 #ifdef __cplusplus
