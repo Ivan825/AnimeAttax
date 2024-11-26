@@ -9,7 +9,8 @@
   "Intelligence": 0,
   "Buff": 98,
   "Power": 75,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -22,7 +23,9 @@
   "Intelligence": 0,
   "Buff": 95,
   "Power": 75,
-  "Armor": 0
+  "Armor": 0,
+
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -35,7 +38,8 @@
   "Intelligence": 0,
   "Buff": 95,
   "Power": 70,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -48,7 +52,8 @@
   "Intelligence": 0,
   "Buff": 95,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -61,7 +66,8 @@
   "Intelligence": 0,
   "Buff": 94,
   "Power": 75,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -74,20 +80,22 @@
   "Intelligence": 0,
   "Buff": 90,
   "Power": 75,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
     "$oid": "67431f93c2143e7c55749710"
   },
   "Character": "Sung, Jin-Woo",
-  "Anime": "solo leveling",
+  "Anime": "Solo Leveling",
   "Attack": 90,
   "Resilience": 88,
   "Intelligence": 0,
   "Buff": 80,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -100,7 +108,8 @@
   "Intelligence": 0,
   "Buff": 75,
   "Power": 65,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -113,7 +122,8 @@
   "Intelligence": 0,
   "Buff": 75,
   "Power": 85,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -126,7 +136,8 @@
   "Intelligence": 0,
   "Buff": 70,
   "Power": 70,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -139,7 +150,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -152,7 +164,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -165,7 +178,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -178,7 +192,8 @@
   "Intelligence": 0,
   "Buff": 60,
   "Power": 75,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -191,7 +206,8 @@
   "Intelligence": 0,
   "Buff": 60,
   "Power": 100,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -204,7 +220,8 @@
   "Intelligence": 0,
   "Buff": 60,
   "Power": 100,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -217,7 +234,8 @@
   "Intelligence": 0,
   "Buff": 60,
   "Power": 100,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -230,7 +248,8 @@
   "Intelligence": 0,
   "Buff": 60,
   "Power": 100,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -243,7 +262,8 @@
   "Intelligence": 0,
   "Buff": 60,
   "Power": 88,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 },
 {
   "_id": {
@@ -256,5 +276,6 @@
   "Intelligence": 0,
   "Buff": 40,
   "Power": 100,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Legendary"
 }]

@@ -9,7 +9,8 @@
   "Intelligence": 1,
   "Buff": 90,
   "Power": 65,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -22,7 +23,8 @@
   "Intelligence": 1,
   "Buff": 88,
   "Power": 60,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -35,7 +37,8 @@
   "Intelligence": 1,
   "Buff": 80,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -48,7 +51,8 @@
   "Intelligence": 1,
   "Buff": 85,
   "Power": 80,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -61,7 +65,8 @@
   "Intelligence": 1,
   "Buff": 80,
   "Power": 80,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -74,7 +79,8 @@
   "Intelligence": 1,
   "Buff": 80,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -87,7 +93,8 @@
   "Intelligence": 1,
   "Buff": 80,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -100,7 +107,8 @@
   "Intelligence": 0,
   "Buff": 90,
   "Power": 60,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -113,7 +121,8 @@
   "Intelligence": 0,
   "Buff": 90,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -126,7 +135,8 @@
   "Intelligence": 0,
   "Buff": 89,
   "Power": 65,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -139,7 +149,8 @@
   "Intelligence": 0,
   "Buff": 88,
   "Power": 60,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -152,7 +163,8 @@
   "Intelligence": 0,
   "Buff": 86,
   "Power": 60,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -165,7 +177,8 @@
   "Intelligence": 0,
   "Buff": 85,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -178,7 +191,8 @@
   "Intelligence": 0,
   "Buff": 84,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -191,7 +205,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 80,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -204,7 +219,8 @@
   "Intelligence": 0,
   "Buff": 40,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -217,7 +233,8 @@
   "Intelligence": 0,
   "Buff": 80,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -230,7 +247,8 @@
   "Intelligence": 0,
   "Buff": 80,
   "Power": 50,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -243,7 +261,8 @@
   "Intelligence": 0,
   "Buff": 80,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -256,7 +275,8 @@
   "Intelligence": 0,
   "Buff": 75,
   "Power": 45,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -269,7 +289,8 @@
   "Intelligence": 0,
   "Buff": 75,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -282,7 +303,8 @@
   "Intelligence": 0,
   "Buff": 70,
   "Power": 75,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -295,7 +317,8 @@
   "Intelligence": 0,
   "Buff": 70,
   "Power": 65,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -308,7 +331,8 @@
   "Intelligence": 0,
   "Buff": 70,
   "Power": 80,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -321,7 +345,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 85,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -334,7 +359,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 85,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -347,7 +373,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 85,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -360,7 +387,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -373,7 +401,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 85,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -386,7 +415,8 @@
   "Intelligence": 0,
   "Buff": 65,
   "Power": 85,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -399,7 +429,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -412,7 +443,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -425,7 +457,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -438,7 +471,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -451,7 +485,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -464,7 +499,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -477,7 +513,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -490,7 +527,8 @@
   "Intelligence": 0,
   "Buff": 45,
   "Power": 83,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 },
 {
   "_id": {
@@ -503,5 +541,6 @@
   "Intelligence": 0,
   "Buff": 35,
   "Power": 65,
-  "Armor": 0
+  "Armor": 0,
+  "Type": "Epic"
 }]
