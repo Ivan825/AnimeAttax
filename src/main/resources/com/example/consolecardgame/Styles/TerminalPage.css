@@ -58,3 +58,19 @@
     -fx-background-color: #222222;
     -fx-border-color: #555555;
 }
+/* Style for the Music Volume Slider */
+.music-volume-slider {
+    -fx-control-inner-background: #333333;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.music-volume-slider .track {
+    -fx-background-color: #555555;
+    -fx-background-radius: 3;
+}
+
+.music-volume-slider .thumb {
+    -fx-background-color: #888888;
+    -fx-background-radius: 8px;
+}
