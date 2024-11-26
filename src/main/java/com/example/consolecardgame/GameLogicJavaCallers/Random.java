@@ -14,9 +14,10 @@ public class Random {
         Random random = new Random();
 
         // Call the native method
-        ArrayList<String> result = random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/All.json");
+        ArrayList<String> all = random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/All.json");
+        ArrayList<String> legendary=random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/Cards.Legendary.json");
+        ArrayList<String> epic= random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/Cards.Epic.json");
+        ArrayList<String> rare= random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/Cards.Rare.json");
 
-        // Print the result
-        System.out.println("Random Character Details: " + result);
     }
 }
