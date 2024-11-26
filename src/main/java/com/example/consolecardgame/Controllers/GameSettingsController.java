@@ -21,8 +21,7 @@ import java.util.ResourceBundle;
 
 public class GameSettingsController implements Initializable {
 
-    @FXML
-    private StackPane rootPane;
+    // Removed rootPane since we're obtaining Stage via ActionEvent
 
     // Step panes
     @FXML
@@ -52,7 +51,6 @@ public class GameSettingsController implements Initializable {
     private Image nextIcon;
     private Image startGameIcon;
 
-
     private int currentStep = 1;
     private final int totalSteps = 3;
 
@@ -69,31 +67,34 @@ public class GameSettingsController implements Initializable {
         // Optionally, set a default selection
         humanVsHumanRadioButton.setSelected(true);
 
-        // Initialize Spinner with values from 1 to 10
+        // Initialize Spinner with values from 1 to 10, default 3
         roundsSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 3));
 
         // Disable back button on the first step
         backButton.setDisable(true);
-        // Load images
-        nextIcon = new Image(getClass().getResourceAsStream("/com/example/consolecardgame/Images/Backgrounds/Next.png"));
-        startGameIcon = new Image(getClass().getResourceAsStream("/com/example/consolecardgame/Images/Backgrounds/StartGameb.png"));
 
-        // Set initial icon for nextButtonImage
-        nextButtonImage.setImage(nextIcon);
-
-        if (nextButtonImage == null) {
-            System.out.println("nextButtonImage is null");
-        } else {
-            System.out.println("nextButtonImage is initialized");
+        // Load images for the Next/Start button
+        try {
+            nextIcon = new Image(getClass().getResourceAsStream("/com/example/consolecardgame/Images/Backgrounds/Next.png"));
+            startGameIcon = new Image(getClass().getResourceAsStream("/com/example/consolecardgame/Images/Backgrounds/StartGameb.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Failed to load button images.");
         }
 
+        // Set initial icon for nextButtonImage
+        if (nextButtonImage != null && nextIcon != null) {
+            nextButtonImage.setImage(nextIcon);
+        } else {
+            System.out.println("nextButtonImage or nextIcon is null");
+        }
 
         // Set initial step
         updateStep();
     }
 
     @FXML
-    private void handleNext() {
+    private void handleNext(ActionEvent event) {
         if (currentStep < totalSteps) {
             if (collectDataFromStep(currentStep)) {
                 currentStep++;
@@ -101,7 +102,7 @@ public class GameSettingsController implements Initializable {
             }
         } else {
             if (collectDataFromStep(currentStep)) {
-               // startGame();
+                startGame(event);
             }
         }
     }
@@ -128,7 +129,7 @@ public class GameSettingsController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
-            // Optionally, display an error dialog
+            showAlert("Failed to load the Home Page.");
         }
     }
 
@@ -143,15 +144,17 @@ public class GameSettingsController implements Initializable {
             case 1:
                 step1Pane.setVisible(true);
                 backButton.setDisable(true);
+                nextButtonImage.setImage(nextIcon); // Ensure the Next icon is set
                 break;
             case 2:
                 step2Pane.setVisible(true);
                 backButton.setDisable(false);
+                nextButtonImage.setImage(nextIcon);
                 break;
             case 3:
                 step3Pane.setVisible(true);
                 backButton.setDisable(false);
-                nextButtonImage.setImage(startGameIcon);
+                nextButtonImage.setImage(startGameIcon); // Change icon to Start Game
                 break;
         }
     }
@@ -199,26 +202,32 @@ public class GameSettingsController implements Initializable {
         return true;
     }
 
-//    private void startGame() {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/consolecardgame/FXML/GameScene.fxml"));
-//            Parent gameRoot = loader.load();
-//
-//            // Pass the game settings to the game controller
-//            GameController gameController = loader.getController();
-//            gameController.initGame(gameSettings);
-//
-//            // Set the new scene
-//            Stage stage = (Stage) rootPane.getScene().getWindow();
-//            Scene scene = new Scene(gameRoot);
-//            stage.setScene(scene);
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            showAlert("Failed to start the game.");
-//        }
-//    }
+    /**
+     * Starts the game by transitioning to the Terminal Page.
+     */
+    private void startGame(ActionEvent event) {
+        try {
+            // Load TerminalPage.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/consolecardgame/FXML/TerminalPageFXML.fxml"));
+            Parent terminalPageRoot = loader.load();
+
+            // Get the controller of TerminalPage
+            TerminalPageController terminalController = loader.getController();
+
+            // Pass the GameSettings object to TerminalPageController
+            terminalController.setGameSettings(gameSettings);
+
+            // Obtain the Stage from the event source
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(terminalPageRoot);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Failed to start the game.");
+        }
+    }
 
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
