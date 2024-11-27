@@ -109,23 +109,6 @@ public class Game {
     
     //Game start
     public void start(){
-        // Music
-        Util.print("Turn on music? [Y/N]");
-        if( in.nextLine().equalsIgnoreCase("y") ){
-            try {
-                music();
-            } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-                Util.printError("Unable to start music! Lets just ignore that...");
-            }
-        }
-        
-        // A bit of time delay just to make sure players have some time
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        
         if( game_mode )
             Util.clearConsole();
         
@@ -180,17 +163,6 @@ public class Game {
         // close stream
         in.close();
     }
-    
-    //in game music
-    private void music() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        AudioInputStream audioIn = AudioSystem.getAudioInputStream(Game.class.getResource("game_background.wav"));
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioIn);
-        clip.loop(Clip.LOOP_CONTINUOUSLY); // make it always play
-        clip.start();
-        Util.print("Music started! \n - Type: " + clip.getFormat() + "\n - Length in minutes: " + clip.getMicrosecondLength()/1000000/60);
-    }
-    
     //Game start
     private void introduction(){
         StringJoiner joiner = new StringJoiner("\n");
@@ -200,18 +172,11 @@ public class Game {
         joiner.add(" 2. Deck Setup:\n   - Here the user picks each player's deck.");
         joiner.add(" 3. Game Logic:\n   - The game round starts. Hand size = " + Hand.MAX_CARDS_IN_HAND +"\n   - Each turn a player plays a card.\n   - The player selects which attribute the card will be played with.\n   - There are 2 Categories of attributes TIMED and NON-TIMED. Each attribute can be on of the 3 types of attributes BUFF, INFLICT and RESILIANCE.\n   - The card selected will be played with an active attribute placed on the board\n   - Turns are repeated untill a player passes or runs out of cards\n   - Round winner is the player with the highest power on the board.\n   - Repeat until no more cards. \n   - Winner of the round is the player with most power on board.\n   - Repeat until max rounds. Game Winner is player with most round wins.");
        
-        joiner.add("\n===============[ Specifics - Factions ]===============");  
-        for( DeckFaction v : DeckFaction.values() )
-            joiner.add( "Name: " + v.getName() + "\nDescription: " + v.getDescription());
-        
         joiner.add("\n===============[ Specifics - Attributes ]===============");
         joiner.add("Attributes can be timed or not timed. Timed attributes are deployed after a certains number of turns. Non timed are deployed at play.\nEach attribute can be on of the 3 types:");  
         for( AttributeType v : AttributeType.values() )
             joiner.add( "Name: " + v.getName() + "\nDescription: " + v.getDescription());
         
-        joiner.add("\n===============[ Specifics - AI Difficulties ]==============="); 
-        for( ComputerType v : ComputerType.values() )
-            joiner.add( "Name: " + v.getName() + "\nDescription: " + v.getDescription());
         joiner.add("\n===============[ Copyright for the song ]==============="); 
         joiner.add("Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for \"fair use\" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.\nNon-profit, educational or personal use tips the balance in favor of fair use.");
         joiner.add("Song: L' Arabesque Danse Toujours from Magi OST. Rights reserved to the original content creators");
@@ -226,38 +191,11 @@ public class Game {
         for( int i = 0; i < n_players; i++ ){
             // Setup player information       
             System.out.println("[PLAYER SETUP][ID: "+i+"]");
-            //String ans = (String) Util.promptInputValidationByValue("[PLAYER SETUP][ID: "+i+"] \nInsert Player type\n - Human\n - Computer", in, new Object[]{"Human", "Computer", "HUMAN", "COMPUTER", "human", "computer"} );
-            //if( ans.equalsIgnoreCase("human") ){
-                Util.print("[COMPUTER SETUP] Please enter players name:");
-                players[i] = new Human(i, in.nextLine());
-            // }else if( ans.equalsIgnoreCase("computer") ){
-            //     ComputerType dif = null;
-            //     ComputerType.printDescription();
-            //     String difstr = (String) Util.promptInputValidationByValue("[COMPUTER SETUP] Please enter Computer difficulty level:", in, ComputerType.getTypesAsStrings() );
-            //     dif = ComputerType.getFromString(difstr.toUpperCase());
-            //     players[i] = new Computer( i, "PC"+i+"-"+dif.getName(), dif );
-            // }else{
-            //     throw new Error("Invalid input processed!");
-            // }
+            Util.print("[COMPUTER SETUP] Please enter players name:");
+            players[i] = new Human(i, in.nextLine());
             players[i].setGame(this);
         }
     }
-    
-    /**
-     * Sets up the decks that each player will use.
-     */
-    // private void deckSelection() {
-    //     Util.print("[DECK SELECTION] For each of the players, please select the faction they are going to play with. Factions:\n - Elves\n - Pirates\n - Kingdom");
-    //     for( Player ply : players ){
-    //         Util.printSeparator("DECK SELECTION - " + ply.getName());
-    //         String ans = (String) Util.promptInputValidationByValue("[DECK SELECTION]["+ply.getName()+"][ID: "+ply.getId()+"] Please select a faction for the player!", in, new Object[]{"ELVES", "PIRATES", "KINGDOM", "elves", "pirates", "kingdom", "Elves", "Pirates", "Kingdom"} );
-    //         ply.setFaction(DeckFaction.getFromString(ans.toUpperCase()));
-    //         ply.setDeck(Deck.loadPresetDeck(ply.getFaction()));
-    //         ply.getDeck().setOwner(ply);
-    //         ply.shuffleDeck();
-    //         ply.setGraveyard(new Graveyard());
-    //     }
-    // }
     
     //setup other players hand
     private void setUpHand(){
@@ -276,6 +214,7 @@ public class Game {
     private void logic(){
         HashMap<Integer,Categories>state = new HashMap<>();
         while( everyoneHasNotPassed() ){
+            HashMap<Integer,Categories>new_state=new HashMap<>();
             for( Player ply : players ){
                 if ( !ply.hasPassed() ){
                     // Confirmation telling players the next turn is about to be computed:
@@ -299,18 +238,14 @@ public class Game {
                         if( game_mode && ply instanceof Human )
                             //logic for random and type
                             if(state.get(ply.getId())!=null){
-                                
-                                //ply.drawCard(state.get(ply.getId()))
-                                //print card
+                                ply.drawCard(state.get(ply.getId())).printCard();
 
                             }
                             else{
-                                //random drawCard;
-                                //ply.drawCard().printCard();//random call instead
+                                ply.drawCard().printCard();
                             } 
                             
                     }
-                    state = new HashMap<>();//reseting the state after the cards alloted
                     // Prints to console cards in hand
                     Util.printSeparator("Hand for '" + ply.getName() + "'");
                     if( game_mode && ply instanceof Human )ply.printHand();
@@ -332,7 +267,7 @@ public class Game {
                         // Move on to board logic
                         Categories category = board.playBoard(pdata);
                         if(category!=null){
-                            state.put(pdata.player.getId(), category);
+                            new_state.put(pdata.player.getId(), category);
                         }
                     }
                 }else{
@@ -342,6 +277,7 @@ public class Game {
                 if( game_mode )
                     Util.clearConsoleConfirm(in);
             }
+            state = new HashMap<>(new_state);
         }
         
         // Store and calculate round data

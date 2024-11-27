@@ -8,7 +8,7 @@ Designed to hold information about a card that is part of the game.
 A card has a set of 3 attributes.
 */
 public class Card {
-    public static final int MAX_CARD_ATTRIBUTE = 4; 
+    public static final int MAX_CARD_ATTRIBUTE = 3; 
     private String name;
     private String description;
     private int power;
@@ -22,6 +22,7 @@ public class Card {
     // board data
     private Attribute active_attribute;
     private int board_id;
+    private int is_Intelligent;
     
     /*
     Constructor that creates a new card instance.
@@ -30,7 +31,7 @@ public class Card {
     power is the power of the card
     attributes is the attributes the card has
     */
-    public Card( String name, String description, int power, Attribute[] attributes,String category ){ 
+    public Card( String name, String description, int power, int isIntelligent,Attribute[] attributes,String category ){ 
         if ( attributes.length != MAX_CARD_ATTRIBUTE )
             throw new IllegalArgumentException("Attributes array is not within the specified length!");
 
@@ -38,6 +39,7 @@ public class Card {
         this.description = description;
         this.power = power;
         this.attributes = attributes;
+        this.is_Intelligent=isIntelligent;
         switch (category) {
             case "Common":
                 this.category=Categories.COMMON;
@@ -72,6 +74,10 @@ public class Card {
         return this.category;
     }
     
+    //Get is the card is Intelligent or Inflicting
+    public int isIntelligent(){
+        return this.is_Intelligent;
+    }
     //Get the power of the card
     public int getPower() {
         return power;
@@ -161,70 +167,71 @@ public class Card {
     }
     
     //Displays the card in console
-    public void printCard(){
+    public void printCard() {
         final int NAME_SPACE = 24;
         final int POWER_SPACE = 23;
-        final int RESILIANCE_SPACE = 18;
-        final int ATTRIBUTE_SPACE = 26;
+        final int RESILIANCE_SPACE = 22;
+        final int TYPE_SPACE = 24; // Space allocated for Type
+        final int ATTRIBUTE_SPACE = 30;
         final String over = "(...)";
-
+    
         // Format name
         String name = this.name;
-        if ( name.length() >= NAME_SPACE ){
-            name = name.substring(0, NAME_SPACE-over.length());
-            name = name + over;
+        if (name.length() >= NAME_SPACE) {
+            name = name.substring(0, NAME_SPACE - over.length()) + over;
         }
-        
-        int dif1 = NAME_SPACE-name.length();
-        StringBuilder sbname = new StringBuilder(name);
-        for ( int i = 0; i < dif1; i++ )
-            sbname.append(" ");
-        
-        name = sbname.toString();
-        
+        name = String.format("%-" + NAME_SPACE + "s", name);
+    
         // Format power
         String power = Integer.toString(this.power);
-        StringBuilder sbpower = new StringBuilder(power);
-        int dif2 = POWER_SPACE-power.length();
-        for ( int i2 = 0; i2 < dif2; i2++ )
-            sbpower.append(" ");
-      
-        power = sbpower.toString();
-        
+        power = String.format("%-" + POWER_SPACE + "s", power);
+    
         // Format resiliance
         String resiliance = Integer.toString(this.armour);
-        StringBuilder sbresiliance = new StringBuilder(resiliance);
-        int dif3 = RESILIANCE_SPACE-resiliance.length();
-        for ( int i3 = 0; i3 < dif3; i3++ )
-            sbresiliance.append(" ");
-        
-        resiliance = sbresiliance.toString();
-        
-        System.out.printf("|-------------------------------|%n"); // 23 chars
-        System.out.printf("| Name: %s|%n", name); // 14 chars left
-        System.out.printf("| Power: %s|%n", power); // 13 chars left
-        System.out.printf("| Armour: %s|%n", resiliance); // 13 chars left
-        System.out.printf("|                               |%n");
-        
-        // Format Attributes
-        int in = 0;
-        for ( Attribute v : attributes ){
-            String at = v.getName();
-            if ( at.length() >= ATTRIBUTE_SPACE ){
-                at = at.substring(0, NAME_SPACE-over.length());
-                at = at + over;
-            }
-            int dif4 = ATTRIBUTE_SPACE-at.length();
-            StringBuilder sbat = new StringBuilder(at);
-            for ( int i4 = 0; i4 < dif4; i4++ )
-                sbat.append(" ");
-            
-            at = sbat.toString();
-            System.out.printf("| A%d: %s|%n", ++in, at);
+        resiliance = String.format("%-" + RESILIANCE_SPACE + "s", resiliance);
+    
+        // Format type
+        int isIntelligent = this.is_Intelligent;
+        String type;
+        if (isIntelligent == 1 ) {
+            type = "Intelligent"; // Fallback if `type` is not set
         }
-        
+        else{
+            type="Inflicting";
+        }
+        type = String.format("%-" + TYPE_SPACE + "s", type);
+    
+        // Print card
+        System.out.printf("|-------------------------------|%n");
+        System.out.printf("| Name: %s|%n", name);
+        System.out.printf("| Power: %s|%n", power);
+        System.out.printf("| Armour: %s|%n", resiliance);
+        System.out.printf("| Type: %s|%n", type);
+        System.out.printf("|                               |%n");
+    
+        // Print attributes with their values
+        for (Attribute v : attributes) {
+            String at = v.getName();
+            String value = Integer.toString(v.getValue());
+
+            // Combine attribute name and value
+            String attributeDisplay = at + " (" + value + ")";
+
+            // Truncate if too long
+            if (attributeDisplay.length() >= ATTRIBUTE_SPACE) {
+                attributeDisplay = attributeDisplay.substring(0, ATTRIBUTE_SPACE - over.length()) + over;
+            }
+
+            // Format the attribute display
+            attributeDisplay = String.format("%-" + ATTRIBUTE_SPACE + "s", attributeDisplay);
+
+            // Print the formatted attribute
+            System.out.printf("| %s|%n", attributeDisplay);
+        }
+    
         System.out.printf("|-------------------------------|%n");
     }
+    
     
     
     //Displays the attributes of the card in console
@@ -235,9 +242,7 @@ public class Card {
             System.out.println("--------[ INDEX " + i + " ]---------" );
             System.out.println("Name: " + at.getName());
             System.out.println("Value: " + at.getValue());
-            System.out.println("Type: " + at.getType().toString());
-            System.out.println("#Targets: " + at.getNumTargets());
-            System.out.println("Description: " + at.getDescription());
+            System.out.println("#Targets: " + at.getNumTargets());;
             i++;
         }
     }

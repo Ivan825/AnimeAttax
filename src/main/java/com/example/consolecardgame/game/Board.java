@@ -69,29 +69,27 @@ public class Board {
     }
     
     //playing 
-    public Categories playBoard( Player.PlayData pdata ){      
-        // check timed attributes
-        //checkTimedAttributes();
+    public Categories playBoard( Player.PlayData pdata ){
         
         Util.printSeparator("Board Changes");
         // add card to board
         pdata.card_played.setActiveAttribute(pdata.at_played);
         if(pdata.at_played.getType()==AttributeType.INTELLIGENCE){
-            addCard(pdata.targeted_ply,pdata.card_played); //if the card is intelligent, it ll get placed on opponents deck
+            addCard(pdata.targeted_ply,pdata.card_played); //If the card is intelligent, it willl get placed on opponents deck
             return pdata.card_played.getCategory();
         }
         else{
-            addCard(pdata.player, pdata.card_played);//otherwise on the users deck only
+            addCard(pdata.player, pdata.card_played);//Otherwise on the users deck only
         }
         
         
-        // skip if no targets ( Case when we place the only card on the board! )
+        // Skip if no targets ( Case when we place the only card on the board! )
         if( pdata.targetids.length == 0 ){
             Util.print("No targets found for %s of %s! Card was placed on the board without attribute triggering.", pdata.card_played.getName(), pdata.at_played.getName() );
             return null;
         }
         
-        // target id translation into reference
+        // Target id translation into reference
         Card[] targets = new Card[pdata.targetids.length];
         for( int i = 0; i < pdata.targetids.length; i++ ){
             targets[i] = getCard(pdata.targeted_ply, pdata.targetids[i]);

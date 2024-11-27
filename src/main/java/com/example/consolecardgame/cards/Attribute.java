@@ -22,12 +22,26 @@ public class Attribute {
     type is the type of the attribute
     the number of targets are the number of cards the attribute can affect(set to 1 currently but can be developed in the future)
      */
-    public Attribute( String name, String description, int value, int num_targets, AttributeType type ){
-        this.name = name;
-        this.description = description;
+    public Attribute(int value, AttributeType type ){
+        switch (type) {
+            case AttributeType.INFLICTING:
+                name = "Inflicting";
+                break;
+            case AttributeType.BUFF:
+                name = "Buff";
+                break;
+            case AttributeType.RESILIANCE:
+                name = "Resiliance";
+                break;
+            case AttributeType.INTELLIGENCE:
+                name = "Intelligence";
+            default:
+                break;
+        }
+        this.description = "";
         this.value = value;
         this.type = type;
-        this.num_targets = num_targets;
+        this.num_targets = 1;
     }
     
     //Get name of the attribute

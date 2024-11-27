@@ -40,10 +40,8 @@ public class Hand {
         cards_in_hand++;
     }
     
-    /**
-     * Removes a card from the hand data structure.
-     * @param index index of the card to remove
-     * @return returns the removed card.
+    /*
+    Removes the card from hand
      */
     public Card removeCardFromHand( int index ){
         if ( cards_in_hand == 0 ) {
@@ -61,26 +59,22 @@ public class Hand {
         return cardremoved;
     }
     
-    /**
-     * Checks if the index holds a card.
-     * @param index index of the card to check
-     * @return true or false
+    /*
+    Check if there is card on hand given the index
      */
     public boolean hasCardOnIndex( int index ){
         return array[index] != null;
     }
     
-    /**
-     * @return the number of cards in the hand datastructure.
+    /*
+    Gets the number of cards in the hand datastructure.
      */
     public int getCardsInHand(){
         return cards_in_hand;
     }
     
-    /**
-     * Gets the card at an index.
-     * @param index index of the card to get
-     * @return the card
+    /*
+    Given an index, get the card from hand
      */
     public Card getCardFromHand( int index ){
         if ( !hasCardOnIndex(index) ) {
@@ -90,15 +84,15 @@ public class Hand {
         return array[index];
     }
     
-    /**
-     * @return the first card found in hand
+    /*
+    Gets the index of the first card in hand
      */
     public int getFirstCardIndexFromHand() {
         return ( array[0] == null ) ? 1 : 0;
     }
     
-    /**
-     * Prints the cards in a game format in this data structure.
+    /*
+    Prints the cards in a game format in this data structure.
      */
     public void printCards() {
         int i = 0;

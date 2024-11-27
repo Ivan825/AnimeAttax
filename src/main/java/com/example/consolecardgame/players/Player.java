@@ -8,7 +8,8 @@ import com.example.consolecardgame.cards.Hand;
 import com.example.consolecardgame.game.Board;
 import com.example.consolecardgame.game.Game;
 import com.example.consolecardgame.utility.Util;
-
+import com.example.consolecardgame.GameLogicJavaCallers.Random;
+import com.example.consolecardgame.cards.Categories;
 public abstract class Player {
     // instance constants/variables
     private final int id;
@@ -142,11 +143,41 @@ public abstract class Player {
             Util.print("Player %s has no more cards in deck!", name); 
             return null;
         }
-        Card new_card = //new Card(getr.getname(), name, cardsDrawn, null, Categories.LEGENDARY ) //add function //change here to get random card from the db
+        Random cards = new Random();
+        Card new_card = cards.getRandomCardFromAll();
         hand.addCardToHand(new_card);
         Util.print("Player %s drew a card!", name);
         
         return new_card; 
+    }
+    public Card drawCard(Categories categories){
+        if (hand == null) 
+            throw new NullPointerException("This method cannot be called without first both the hand and deck to the player.");
+        
+        if( this.cardsDrawn == 5 ){
+            Util.print("Player %s has no more cards in deck!", name); 
+            return null;
+        }
+        Random cards = new Random();
+        Card new_card=null;
+        switch (categories) {
+            case Categories.COMMON:
+                new_card=cards.getRandomRareCard();
+                break;
+            case Categories.RARE:
+                new_card=cards.getRandomEpicCard();
+                break;
+            case Categories.EPIC:
+                new_card=cards.getRandomLegendaryCard();
+                break;
+            default:
+                break;
+        }
+        //new Card(getr.getname(), name, cardsDrawn, null, Categories.LEGENDARY ) //add function //change here to get random card from the db
+        hand.addCardToHand(new_card);
+        Util.print("Player %s drew a card!", name);
+        
+        return new_card;
     }
     
     /*
