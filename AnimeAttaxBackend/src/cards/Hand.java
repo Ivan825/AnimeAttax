@@ -42,7 +42,7 @@ public class Hand {
     
     /*
     Removes the card from hand
-     */
+    */
     public Card removeCardFromHand( int index ){
         if ( cards_in_hand == 0 ) {
             throw new IllegalStateException("Hand is empty");
@@ -61,21 +61,21 @@ public class Hand {
     
     /*
     Check if there is card on hand given the index
-     */
+    */
     public boolean hasCardOnIndex( int index ){
         return array[index] != null;
     }
     
     /*
     Gets the number of cards in the hand datastructure.
-     */
+    */
     public int getCardsInHand(){
         return cards_in_hand;
     }
     
     /*
     Given an index, get the card from hand
-     */
+    */
     public Card getCardFromHand( int index ){
         if ( !hasCardOnIndex(index) ) {
             throw new IllegalStateException("There is no card on the hand at this index!");
@@ -86,14 +86,14 @@ public class Hand {
     
     /*
     Gets the index of the first card in hand
-     */
+    */
     public int getFirstCardIndexFromHand() {
         return ( array[0] == null ) ? 1 : 0;
     }
     
     /*
     Prints the cards in a game format in this data structure.
-     */
+    */
     public void printCards() {
         int i = 0;
         for( Card c : array ){
