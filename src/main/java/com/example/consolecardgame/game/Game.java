@@ -178,13 +178,13 @@ public class Game {
         joiner.add(" 3. Game Logic:\n   - The game round starts. Hand size = " + Hand.MAX_CARDS_IN_HAND +"\n   - Each turn a player plays a card.\n   - The player selects which attribute the card will be played with.\n   - There are 2 Categories of attributes TIMED and NON-TIMED. Each attribute can be on of the 3 types of attributes BUFF, INFLICT and RESILIANCE.\n   - The card selected will be played with an active attribute placed on the board\n   - Turns are repeated untill a player passes or runs out of cards\n   - Round winner is the player with the highest power on the board.\n   - Repeat until no more cards. \n   - Winner of the round is the player with most power on board.\n   - Repeat until max rounds. Game Winner is player with most round wins.");
        
         joiner.add("\n===============[ Specifics - Attributes ]===============");
-        joiner.add("Attributes can be timed or not timed. Timed attributes are deployed after a certains number of turns. Non timed are deployed at play.\nEach attribute can be on of the 3 types:");  
+        joiner.add("Attributes can be timed or not timed. Timed attributes are deployed after a certains number of turns. Non timed are deployed at play.\nEach attribute can be on of the 3 types:");
+        joiner.add("Attributes can of types:\n1)Intelligence: This move guarantees that the next card drawn by the user will be of the next better category\n");
         for( AttributeType v : AttributeType.values() )
             joiner.add( "Name: " + v.getName() + "\nDescription: " + v.getDescription());
         
-        joiner.add("\n===============[ Copyright for the song ]==============="); 
-        joiner.add("Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for \"fair use\" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.\nNon-profit, educational or personal use tips the balance in favor of fair use.");
-        joiner.add("Song: L' Arabesque Danse Toujours from Magi OST. Rights reserved to the original content creators");
+        joiner.add("\n===============[ Copyright for the song ]===============");
+        joiner.add("Song: Space Boy from Initial-D . Rights reserved to the original content creators");
         
         System.out.println(joiner.toString());
         Util.print("Done reading? Type anything to move on...");
