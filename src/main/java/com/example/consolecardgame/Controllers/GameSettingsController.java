@@ -208,7 +208,6 @@ public class GameSettingsController implements Initializable {
     private void startGame(ActionEvent event) {
         try {
             // Load TerminalPage.fxml
-            System.out.println(gameSettings.getNumberOfRounds());
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/consolecardgame/FXML/TerminalPageFXML.fxml"));
             //bug
             Parent terminalPageRoot= loader.load();
