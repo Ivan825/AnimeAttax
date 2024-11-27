@@ -23,7 +23,7 @@ public class Game {
     private final int id; 
     private final int n_players;
     private final Scanner in;
-    private final Player[] players;
+    private Player[] players;
     private final int max_rounds;
     private final Round[] round_data;
     private final boolean game_mode;
@@ -125,7 +125,10 @@ public class Game {
         // Player Setup
         Util.printSeparator2("A game has started! ID: " + id + " #Players: " + n_players);
         players[0] = new Human(0,this.player1);
+        players[0].setGame(this);
+
         players[1] = new Human(1,this.player2);
+        players[1].setGame(this);
         
         while( is_active ){ // Allows re matches with new decks for the same players!
             if( game_mode )
