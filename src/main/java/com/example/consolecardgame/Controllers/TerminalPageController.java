@@ -1,8 +1,8 @@
 package com.example.consolecardgame.Controllers;
 
+import com.example.consolecardgame.game.Game;
 import com.example.consolecardgame.Controllers.GameSettings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import com.example.consolecardgame.utility.ConsoleStream;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -11,19 +11,23 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import com.example.consolecardgame.GameLogicJavaCallers.Random;
-import game.Game;
-import java.io.PrintStream;
+
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Scanner;
 
+/**
+ * Controller for the Terminal Page, handling the display of console outputs and user interactions.
+ */
 public class TerminalPageController {
 
     @FXML
@@ -41,9 +45,12 @@ public class TerminalPageController {
     private GameSettings gameSettings;
     private Game game;
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
+    /**
+     * Piped streams for communicating with the Game class.
+     */
+    private PipedInputStream pipedIn;
+    private PipedOutputStream pipedOut;
+    private Thread gameThread;
 
     /**
      * Command history for navigating with arrow keys.
@@ -62,6 +69,35 @@ public class TerminalPageController {
      */
     @FXML
     private void initialize() {
+        // Redirect System.out and System.err to the terminalTextArea
+        redirectOutputToTerminal();
+
+        // Initialize piped streams for input redirection
+        try {
+            pipedOut = new PipedOutputStream();
+            pipedIn = new PipedInputStream(pipedOut);
+        } catch (IOException e) {
+            appendToTerminal("Error initializing input streams: " + e.getMessage());
+            e.printStackTrace();
+            return;
+        }
+
+        // Create a Scanner from the pipedIn stream
+        Scanner gameScanner = new Scanner(pipedIn);
+
+        // Initialize the Game instance with appropriate parameters
+        int gameId = 1; // Example game ID
+        int numPlayers = 2; // Example number of players
+        int maxRounds = 5; // Example max rounds
+        boolean gameMode = true; // Example game mode (true for Human vs. Computer)
+
+        game = new Game(gameId, numPlayers, maxRounds, gameMode, gameScanner);
+
+        // Start the Game in a new thread to prevent blocking the JavaFX Application Thread
+        gameThread = new Thread(game::start);
+        gameThread.setDaemon(true); // Ensures the thread exits when the application closes
+        gameThread.start();
+
         // Handle Up and Down arrow keys for command history
         inputTextField.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
             if (event.getCode() == KeyCode.UP) {
@@ -96,53 +132,48 @@ public class TerminalPageController {
     }
 
     /**
-     * Initializes and starts the background music.
+     * Redirects System.out and System.err to the terminalTextArea using ConsoleStream.
      */
-    private void initializeBackgroundMusic() {
-        try {
-            // Path to the music file
-            // Ensure the music file is located at src/main/resources/com/example/consolecardgame/Audio/background.mp3
-            URL resource = getClass().getResource("/com/example/consolecardgame/Music/InGameBackground.mp3");
-            if (resource == null) {
-                appendToTerminal("Background music file not found.");
-                return;
-            }
-            String musicPath = resource.toExternalForm();
-            media = new Media(musicPath);
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Loop the music
-            mediaPlayer.setVolume(musicVolumeSlider.getValue() / 100.0); // Set initial volume
-            mediaPlayer.play();
-            appendToTerminal("Background music started.");
-        } catch (Exception e) {
-            appendToTerminal("Error initializing background music: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
     private void redirectOutputToTerminal() {
-        PrintStream printStream = new PrintStream(new ConsoleStream(terminalTextArea));
+        ConsoleStream consoleStream = new ConsoleStream(terminalTextArea);
+        PrintStream printStream = new PrintStream(consoleStream, true);
         System.setOut(printStream);
         System.setErr(printStream);
     }
 
     /**
      * Handles user input from the TextField.
+     * Sends the input to the Game class via the piped output stream.
      */
     @FXML
     private void handleUserInput() {
-        String userInput = inputTextField.getText().trim();
-        if (!userInput.isEmpty()) {
+        String userInput = inputTextField.getText();
+
+        // Append user input to the terminalTextArea, prefixed with ">> "
+        // If the input is empty, still append ">> " to indicate Enter was pressed
+        if (userInput.isEmpty()) {
+            appendToTerminal(">> ");
+        } else {
             appendToTerminal(">> " + userInput);
+        }
+
+        // Add to command history only if input is not empty
+        if (!userInput.trim().isEmpty()) {
             commandHistory.add(userInput);
             historyIndex = -1;
-            // gameLogic.handleInput(userInput); // Uncomment when GameLogic is implemented
-            inputTextField.clear();
         }
-        if (!userInput.isEmpty() && game != null) {
-            // Pass input to the game logic
-            game.processInput(userInput);
-            inputTextField.clear();
+
+        try {
+            // Write the user input followed by a newline to simulate pressing Enter
+            pipedOut.write((userInput + "\n").getBytes());
+            pipedOut.flush();
+        } catch (IOException e) {
+            appendToTerminal("Error sending input to game: " + e.getMessage());
+            e.printStackTrace();
         }
+
+        // Clear the input field after sending
+        inputTextField.clear();
     }
 
     /**
@@ -163,11 +194,7 @@ public class TerminalPageController {
      */
     public void setGameSettings(GameSettings settings) {
         this.gameSettings = settings;
-        // Initialize GameLogic if needed
-        // this.gameLogic = new GameLogic(gameSettings, this);
-        // this.gameLogic.startGame();
-
-        // Append greeting message with player names
+        // Optionally, send initial settings to the Game if needed
         String greeting = "Hello, " + gameSettings.getPlayer1Name() + " and " + gameSettings.getPlayer2Name() + "!";
         greeting += "\nWelcome to Anime Attax.";
         appendToTerminal(greeting);
@@ -175,6 +202,7 @@ public class TerminalPageController {
 
     /**
      * Handles the Exit Game button action.
+     * Stops background music, closes streams, and navigates back to the Home Page.
      */
     @FXML
     private void handleExitGame() {
@@ -182,6 +210,11 @@ public class TerminalPageController {
             // Stop the background music
             if (mediaPlayer != null) {
                 mediaPlayer.stop();
+            }
+
+            // Close the piped output stream to signal the Game thread to stop
+            if (pipedOut != null) {
+                pipedOut.close();
             }
 
             // Load HomePage.fxml
@@ -205,6 +238,31 @@ public class TerminalPageController {
             appendToTerminal("Failed to exit the game.");
             // Optionally, show an alert to the user
             // showAlert("Failed to exit the game.");
+        }
+    }
+
+    /**
+     * Initializes and starts the background music.
+     */
+    private void initializeBackgroundMusic() {
+        try {
+            // Path to the music file
+            // Ensure the music file is located at src/main/resources/com/example/consolecardgame/Music/InGameBackground.mp3
+            URL resource = getClass().getResource("/com/example/consolecardgame/Music/InGameBackground.mp3");
+            if (resource == null) {
+                appendToTerminal("Background music file not found.");
+                return;
+            }
+            String musicPath = resource.toExternalForm();
+            media = new Media(musicPath);
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Loop the music
+            mediaPlayer.setVolume(musicVolumeSlider.getValue() / 100.0); // Set initial volume
+            mediaPlayer.play();
+            appendToTerminal("Background music started.");
+        } catch (Exception e) {
+            appendToTerminal("Error initializing background music: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

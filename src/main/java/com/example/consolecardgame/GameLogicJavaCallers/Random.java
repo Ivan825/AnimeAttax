@@ -1,7 +1,7 @@
 package com.example.consolecardgame.GameLogicJavaCallers;
 
 import java.util.ArrayList;
-
+import com.example.consolecardgame.cards.Attribute;
 import com.example.consolecardgame.cards.AttributeType;
 import com.example.consolecardgame.cards.Card;
 public class Random {
@@ -23,15 +23,19 @@ public class Random {
 
     }
     public Card getRandomCardFromAll(){
+        Random random = new Random();
         return getRandom(random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/All.json"));
     }
     public Card getRandomLegendaryCard(){
+        Random random = new Random();
         return getRandom(random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/Cards.Legendary.json"));
     }
     public Card getRandomEpicCard(){
+        Random random = new Random();
         return getRandom(random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/Cards.Epic.json"));
     }
     public Card getRandomRareCard(){
+        Random random = new Random();
         return getRandom(random.getRandomCharacter("src/main/resources/com/example/consolecardgame/Cards/Cards.Rare.json"));
     }
 

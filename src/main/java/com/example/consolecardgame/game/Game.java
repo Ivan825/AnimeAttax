@@ -79,7 +79,7 @@ public class Game {
     }
     
     //Game constructor
-    Game( int id, int n_players, int max_rounds, boolean game_mode, Scanner in ){
+    public Game( int id, int n_players, int max_rounds, boolean game_mode, Scanner in ){
         this.id = id;
         this.n_players = n_players;
         this.max_rounds = max_rounds;
