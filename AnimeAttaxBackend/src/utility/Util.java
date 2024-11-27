@@ -98,9 +98,8 @@ public final class Util {
         clearConsole();
     }
     
-    /*
-    Clears console.
-    */
+    
+    //Clears console.(is not working for mac)
     public static void clearConsole(){
         //Clears Screen in java
         try {
