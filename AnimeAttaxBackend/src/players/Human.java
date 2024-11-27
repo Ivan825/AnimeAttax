@@ -31,7 +31,7 @@ public class Human extends Player {
             Util.print("Player %s has chosen to continue his turn!", getName());
         }
         
-        // Check Graveyard?
+        //Prompt to check graveyard
         Util.print("%s, do you wish to check your graveyard before the turn? (type 'grave' to check anything else to ignore)", getName());
         if( in.nextLine().equalsIgnoreCase("grave") ){
             Util.print("Player %s has checked his graveyard!", getName());
@@ -53,7 +53,7 @@ public class Human extends Player {
 
             card_played = getHand().getCardFromHand(cindex);
             card_played.printAttributes();
-            // Prompt to go back?
+            // Prompt to go back
             Util.print("[PROMPT MOVE][%s][ID: %d] If you wish to undo your card selection type 'BACK' else press ENTER!", getName(), getId() );
             if( in.nextLine().equalsIgnoreCase("back") )
                 continue;
