@@ -5,6 +5,7 @@ import utility.Util;
 /*
 Designed to hold information about an attribute.
 Each category can have any of the types described in AttributeType.
+These are typically move that a chararcter has
 */
 public class Attribute {
     // Instance variables
@@ -38,7 +39,7 @@ public class Attribute {
             default:
                 break;
         }
-        this.description = "";
+        this.description = ""; //future developmemt option
         this.value = value;
         this.type = type;
         this.num_targets = 1;
