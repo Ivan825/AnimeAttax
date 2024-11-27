@@ -78,6 +78,7 @@ public class Card {
     public int isIntelligent(){
         return this.is_Intelligent;
     }
+    
     //Get the power of the card
     public int getPower() {
         return power;
@@ -132,11 +133,11 @@ public class Card {
         return owner;
     }
     
-    /**
-     * Sets the owner of the card
-     * @param owner the player that owns the card
-     * //Get the card instance for programming convinence
-     */
+    /*
+    Sets the owner of the card
+    owner is the player that owns the card
+    Get the card instance for programming convinence
+    */
     public Card setOwner(Player owner) {
         this.owner = owner;
         return this; // Why? Eases the loading of decks. To much writing otherwise. Why not have it in the constructor? Because there may be cards without owners - someday :D
