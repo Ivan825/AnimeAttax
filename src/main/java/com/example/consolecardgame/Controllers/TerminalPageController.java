@@ -17,7 +17,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
+import com.example.consolecardgame.GameLogicJavaCallers.Random;
+import game.Game;
+import java.io.PrintStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,6 +39,11 @@ public class TerminalPageController {
     private Slider musicVolumeSlider;
 
     private GameSettings gameSettings;
+    private Game game;
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
     /**
      * Command history for navigating with arrow keys.
@@ -112,6 +119,11 @@ public class TerminalPageController {
             e.printStackTrace();
         }
     }
+    private void redirectOutputToTerminal() {
+        PrintStream printStream = new PrintStream(new ConsoleStream(terminalTextArea));
+        System.setOut(printStream);
+        System.setErr(printStream);
+    }
 
     /**
      * Handles user input from the TextField.
@@ -124,6 +136,11 @@ public class TerminalPageController {
             commandHistory.add(userInput);
             historyIndex = -1;
             // gameLogic.handleInput(userInput); // Uncomment when GameLogic is implemented
+            inputTextField.clear();
+        }
+        if (!userInput.isEmpty() && game != null) {
+            // Pass input to the game logic
+            game.processInput(userInput);
             inputTextField.clear();
         }
     }
