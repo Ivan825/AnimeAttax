@@ -29,6 +29,8 @@ public class Game {
     private final boolean game_mode;
     
     // instance variables
+    private String player1;
+    private String player2;
     private int current_round;
     private Board board;
     private int turn;
@@ -79,7 +81,7 @@ public class Game {
     }
     
     //Game constructor
-    public Game( int id, int n_players, int max_rounds, boolean game_mode, Scanner in ){
+    public Game( int id, int n_players, int max_rounds, boolean game_mode, Scanner in ,String p1,String p2){
         this.id = id;
         this.n_players = n_players;
         this.max_rounds = max_rounds;
@@ -87,6 +89,8 @@ public class Game {
         this.game_mode = game_mode;
         this.players = new Player[n_players];
         this.round_data = new Round[max_rounds];
+        this.player1=p1;
+        this.player2=p2;
         
         current_round = 0;
         is_active = true;
@@ -113,14 +117,15 @@ public class Game {
             Util.clearConsole();
         
         // Introduction
-        Util.printSeparator2("Welcome to 'Not A Rip-off GWENT' - A Card Game - COMP213 Assesement 1 - By Paulo Santos");
+        Util.printSeparator2("Welcome to AnimeAttax- By Brocoders");
         introduction();
         if( game_mode )
             Util.clearConsole();
         
         // Player Setup
         Util.printSeparator2("A game has started! ID: " + id + " #Players: " + n_players);
-        setUpPlayers();
+        players[0] = new Human(0,this.player1);
+        players[1] = new Human(1,this.player2);
         
         while( is_active ){ // Allows re matches with new decks for the same players!
             if( game_mode )
@@ -184,17 +189,6 @@ public class Game {
         System.out.println(joiner.toString());
         Util.print("Done reading? Type anything to move on...");
         in.nextLine();
-    }
-    
-    //Player Setup for each side
-    private void setUpPlayers(){
-        for( int i = 0; i < n_players; i++ ){
-            // Setup player information       
-            System.out.println("[PLAYER SETUP][ID: "+i+"]");
-            Util.print("[COMPUTER SETUP] Please enter players name:");
-            players[i] = new Human(i, in.nextLine());
-            players[i].setGame(this);
-        }
     }
     
     //setup other players hand

@@ -70,55 +70,58 @@ public class TerminalPageController {
     @FXML
     private void initialize() {
         // Redirect System.out and System.err to the terminalTextArea
-        redirectOutputToTerminal();
+        //gameSettings=new GameSettings();
+//        gameSettings.setNumberOfRounds(3);
+//        gameSettings.setPlayer1Name("a");
+//        gameSettings.setPlayer2Name("b");
+        //redirectOutputToTerminal();
 
         // Initialize piped streams for input redirection
-        try {
-            pipedOut = new PipedOutputStream();
-            pipedIn = new PipedInputStream(pipedOut);
-        } catch (IOException e) {
-            appendToTerminal("Error initializing input streams: " + e.getMessage());
-            e.printStackTrace();
-            return;
-        }
-
-        // Create a Scanner from the pipedIn stream
-        Scanner gameScanner = new Scanner(pipedIn);
-
-        // Initialize the Game instance with appropriate parameters
-        int gameId = 1; // Example game ID
-        int numPlayers = 2; // Example number of players
-        int maxRounds = 5; // Example max rounds
-        boolean gameMode = true; // Example game mode (true for Human vs. Computer)
-
-        game = new Game(gameId, numPlayers, maxRounds, gameMode, gameScanner);
-
-        // Start the Game in a new thread to prevent blocking the JavaFX Application Thread
-        gameThread = new Thread(game::start);
-        gameThread.setDaemon(true); // Ensures the thread exits when the application closes
-        gameThread.start();
-
-        // Handle Up and Down arrow keys for command history
-        inputTextField.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.UP) {
-                if (historyIndex < commandHistory.size() - 1) {
-                    historyIndex++;
-                    inputTextField.setText(commandHistory.get(commandHistory.size() - 1 - historyIndex));
-                    inputTextField.positionCaret(inputTextField.getText().length());
-                }
-                event.consume();
-            } else if (event.getCode() == KeyCode.DOWN) {
-                if (historyIndex > 0) {
-                    historyIndex--;
-                    inputTextField.setText(commandHistory.get(commandHistory.size() - 1 - historyIndex));
-                    inputTextField.positionCaret(inputTextField.getText().length());
-                } else {
-                    historyIndex = -1;
-                    inputTextField.clear();
-                }
-                event.consume();
-            }
-        });
+//        try {
+//            pipedOut = new PipedOutputStream();
+//            pipedIn = new PipedInputStream(pipedOut);
+//        } catch (IOException e) {
+//            appendToTerminal("Error initializing input streams: " + e.getMessage());
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        // Create a Scanner from the pipedIn stream
+//        Scanner gameScanner = new Scanner(pipedIn);
+//
+//        // Initialize the Game instance with appropriate parameters
+//        int gameId = 1; // Example game ID
+//        int numPlayers = 2; // Example number of players
+//        int maxRounds = gameSettings.getNumberOfRounds(); // Example max rounds
+//        boolean gameMode = true; // Example game mode (true for Human vs. Computer)
+//        game = new Game(gameId, numPlayers, maxRounds, gameMode, gameScanner,gameSettings.getPlayer1Name(),gameSettings.getPlayer2Name());
+//
+//        // Start the Game in a new thread to prevent blocking the JavaFX Application Thread
+//        gameThread = new Thread(game::start);
+//        gameThread.setDaemon(true); // Ensures the thread exits when the application closes
+//        gameThread.start();
+//
+//        // Handle Up and Down arrow keys for command history
+//        inputTextField.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+//            if (event.getCode() == KeyCode.UP) {
+//                if (historyIndex < commandHistory.size() - 1) {
+//                    historyIndex++;
+//                    inputTextField.setText(commandHistory.get(commandHistory.size() - 1 - historyIndex));
+//                    inputTextField.positionCaret(inputTextField.getText().length());
+//                }
+//                event.consume();
+//            } else if (event.getCode() == KeyCode.DOWN) {
+//                if (historyIndex > 0) {
+//                    historyIndex--;
+//                    inputTextField.setText(commandHistory.get(commandHistory.size() - 1 - historyIndex));
+//                    inputTextField.positionCaret(inputTextField.getText().length());
+//                } else {
+//                    historyIndex = -1;
+//                    inputTextField.clear();
+//                }
+//                event.consume();
+//            }
+//        });
 
         // Initialize background music
         initializeBackgroundMusic();
@@ -179,8 +182,57 @@ public class TerminalPageController {
     /**
      * Appends text to the terminal TextArea.
      *
-     * @param text The text to append.
+     *  The text to append.
      */
+    public void start(){
+        redirectOutputToTerminal();
+        try {
+            pipedOut = new PipedOutputStream();
+            pipedIn = new PipedInputStream(pipedOut);
+        } catch (IOException e) {
+            appendToTerminal("Error initializing input streams: " + e.getMessage());
+            e.printStackTrace();
+            return;
+        }
+
+        // Create a Scanner from the pipedIn stream
+        Scanner gameScanner = new Scanner(pipedIn);
+
+        // Initialize the Game instance with appropriate parameters
+        int gameId = 1; // Example game ID
+        int numPlayers = 2; // Example number of players
+        int maxRounds = gameSettings.getNumberOfRounds(); // Example max rounds
+        boolean gameMode = true; // Example game mode (true for Human vs. Computer)
+        game = new Game(gameId, numPlayers, maxRounds, gameMode, gameScanner,gameSettings.getPlayer1Name(),gameSettings.getPlayer2Name());
+
+        // Start the Game in a new thread to prevent blocking the JavaFX Application Thread
+        gameThread = new Thread(game::start);
+        gameThread.setDaemon(true); // Ensures the thread exits when the application closes
+        gameThread.start();
+
+        // Handle Up and Down arrow keys for command history
+        inputTextField.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.UP) {
+                if (historyIndex < commandHistory.size() - 1) {
+                    historyIndex++;
+                    inputTextField.setText(commandHistory.get(commandHistory.size() - 1 - historyIndex));
+                    inputTextField.positionCaret(inputTextField.getText().length());
+                }
+                event.consume();
+            } else if (event.getCode() == KeyCode.DOWN) {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    inputTextField.setText(commandHistory.get(commandHistory.size() - 1 - historyIndex));
+                    inputTextField.positionCaret(inputTextField.getText().length());
+                } else {
+                    historyIndex = -1;
+                    inputTextField.clear();
+                }
+                event.consume();
+            }
+        });
+
+    }
     public void appendToTerminal(String text) {
         terminalTextArea.appendText(text + "\n");
         // Auto-scroll to the bottom

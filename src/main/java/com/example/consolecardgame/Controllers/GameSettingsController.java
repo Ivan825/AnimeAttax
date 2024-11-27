@@ -171,7 +171,7 @@ public class GameSettingsController implements Initializable {
                 return false;
         }
     }
-
+    @FXML
     private boolean collectStep1Data() {
         RadioButton selectedMode = (RadioButton) modeToggleGroup.getSelectedToggle();
         if (selectedMode == null) {
@@ -181,13 +181,13 @@ public class GameSettingsController implements Initializable {
         gameSettings.setGameMode(selectedMode.getText());
         return true;
     }
-
+    @FXML
     private boolean collectStep2Data() {
         int rounds = roundsSpinner.getValue();
         gameSettings.setNumberOfRounds(rounds);
         return true;
     }
-
+    @FXML
     private boolean collectStep3Data() {
         String player1Name = player1NameField.getText().trim();
         String player2Name = player2NameField.getText().trim();
@@ -208,15 +208,25 @@ public class GameSettingsController implements Initializable {
     private void startGame(ActionEvent event) {
         try {
             // Load TerminalPage.fxml
+            System.out.println(gameSettings.getNumberOfRounds());
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/consolecardgame/FXML/TerminalPageFXML.fxml"));
-            Parent terminalPageRoot = loader.load();
+            //bug
+            Parent terminalPageRoot= loader.load();
+
+
 
             // Get the controller of TerminalPage
+
             TerminalPageController terminalController = loader.getController();
+
+            // Ensure gameSettings is not null
+            if (gameSettings == null) {
+                throw new IllegalStateException("GameSettings is null");
+            }
 
             // Pass the GameSettings object to TerminalPageController
             terminalController.setGameSettings(gameSettings);
-
+            terminalController.start();
             // Obtain the Stage from the event source
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(terminalPageRoot);
@@ -225,9 +235,13 @@ public class GameSettingsController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
-            showAlert("Failed to start the game.");
+            showAlert("Failed to start the game: " + e.getMessage());
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+            showAlert(e.getMessage());
         }
     }
+
 
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
