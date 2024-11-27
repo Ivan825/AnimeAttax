@@ -6,6 +6,7 @@ public enum AttributeType {
     BUFF( "Buff", "This attribute type buffs the power of the card played on the board" ),
     RESILIANCE( "Resiliance", "This attribute type buffs the armour of the card played on the board" ),
     INTELLIGENCE("Intelligence","This attribute type guarantees that the next card will be of type higher than the current card but gets placed on the opponents board");
+    //typically a spy card
     private final String name;
     private final String description;
     
