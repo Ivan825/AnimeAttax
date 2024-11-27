@@ -9,63 +9,17 @@ import cards.Categories;
 import players.Player;
 import utility.Util;
 
-/**
- * ADT - Board Class.
- * Designed to hold and process the logic of the card game board.
- * In other words, everything that goes on that is visible to the players eye on a regular
- * card game is calculated here. A game HAS-A board. 
- * @see {@link Game}
- * @author paulo
- */
 public class Board {
     private final HashMap<Player, ArrayList<Card>> boardmap;
-    //private final Game game;
     private final Player[] players;
-    // private final ArrayList<TimedAttribute> timed_attributes;
-    
-    // /**
-    //  * A static class to hold data about timed attributes within the board class.
-    //  * @author paulo
-    //  */
-    // private static class TimedAttribute{
-    //     public final Attribute attribute;
-    //     public final int turn;
-    //     public final Card card;
-    //     public final Player ply;
-    //     public final Player target;
-    //     public final Card[] targets;
-        
-    //     private TimedAttribute( Attribute attribute, int turn, Card card, Player ply, Player target, Card[] targets){
-    //         this.attribute = attribute;
-    //         this.turn = turn;
-    //         this.card = card;
-    //         this.ply = ply;
-    //         this.target = target;
-    //         this.targets = targets;
-    //         Util.print("Timed Attribute! %s's attribute %s (will deploy on turn number %d)\n", ply.getName(), card.getName(), turn);
-    //     }
-    // }
-    
-    /**
-     * Constructor. Constructs a board for the players in the game.
-     * @param game an instance of a active game
-     * @param players the players part of that game
-     */
+
     public Board(Game game, Player[] players){
         boardmap = new HashMap<Player, ArrayList<Card>>();
-        //timed_attributes = new ArrayList<TimedAttribute>();
-        //this.game = game;
         this.players = players;
         for( Player ply : players ){
             boardmap.put(ply, new ArrayList<Card>());
         }
     }
-    
-    /**
-     * Adds a card to the board
-     * @param ply the player that owns the card
-     * @param card the card to be added
-     */
     private void addCard( Player ply, Card card ){
         ArrayList<Card> ply_board =  boardmap.get(ply);
         boardmap.get(ply).add(card);
@@ -73,34 +27,13 @@ public class Board {
         Util.print("Card %s was added to %s's board!", card.getName(), ply.getName());
     }
     
-    /**
-     * Removes a crd from the board
-     * @param ply the player that owns the card
-     * @param card the card to be removed
-     */
     private void removeCard( Player ply, Card card ){
         boardmap.get(ply).remove(card);
         ply.getGraveyard().addCard(card);
     }
-    
-    /**
-     * Gets a card from a players board
-     * @param ply the player from which you want a card
-     * @param index the card index
-     * @return a card selected by index
-     */
     private Card getCard( Player ply, int index ){
         return boardmap.get(ply).get(index);
     }
-    
-    /**
-     * Activates an attribute. Logic behind it.
-     * @param ply the player 
-     * @param card
-     * @param attribute
-     * @param target
-     * @param targets
-     */
     private void activateAttribute( Player ply, Card card, Attribute attribute, Player target, Card[] targets ){
         // perform attribute logic, every effect tick.
         for( Card tcard : targets ){ 
@@ -121,49 +54,15 @@ public class Board {
             }
         }
     }
-    
-    /**
-     * Method that checks for all the timed attribute states.
-     */
-    // private void checkTimedAttributes(){
-    //     Util.printSeparator("Timed Attributes");
-    //     if( timed_attributes.isEmpty() ){
-    //         Util.printEmptyMessage("No timed attributes active on the board or placed on this turn!");
-    //         return;
-    //     }
-        
-    //     // to avoid concurrent modification exception
-    //     Iterator<TimedAttribute> iter = timed_attributes.iterator();
-    //     while (iter.hasNext()) {
-    //         TimedAttribute ta = iter.next();
-    //         if( game.getTurn() == ta.turn ){
-    //             System.out.printf("Timed attriubte effect triggered! %s's %s", ta.card.getName(), ta.attribute.getName());
-    //             activateAttribute(ta.ply, ta.card, ta.attribute, ta.target, ta.targets);
-    //             iter.remove();
-    //         }else{
-    //             System.out.printf("Timed attriubte! %s's '%s' attribute! (turns left: %d )(activates at the end of turn)\n", ta.card.getName(), ta.attribute.getName(),  ta.turn - (game.getTurn()+1));
-    //         }
-    //     }
-    // }
-    
-    /**
-     * Plays a card to the board.
-     * @param ply the player playing the card
-     * @param card the card played by the player
-     * @param attribute the attribute played along with the card
-     * @param target the target board
-     * @param targetids the target cards ids from the target board
-     */
     public Categories playBoard( Player.PlayData pdata ){      
-        // check timed attributes
-        //checkTimedAttributes();
-        
         Util.printSeparator("Board Changes");
         // add card to board
         pdata.card_played.setActiveAttribute(pdata.at_played);
         if(pdata.at_played.getType()==AttributeType.INTELLIGENCE){
             addCard(pdata.targeted_ply,pdata.card_played); //if the card is intelligent, it ll get placed on opponents deck
+        
             return pdata.card_played.getCategory();
+
         }
         else{
             addCard(pdata.player, pdata.card_played);//otherwise on the users deck only
@@ -186,11 +85,7 @@ public class Board {
         
         return null;
     }
-    
-    /**
-     * Gets the total power on board of a player
-     * @param ply the player to get the total power from
-     * @return total board power
+turn total board power
      */
     public int getTotalPlayerPower( Player ply ){
         int t = 0;
@@ -200,11 +95,6 @@ public class Board {
         return t;
     }
     
-    /**
-     * Returns cards on board of a player
-     * @param ply the player to get it from
-     * @return number of cards on board
-     */
     public int getCardsOnBoard( Player ply ){
         return boardmap.get(ply).size();
     }
@@ -229,10 +119,6 @@ public class Board {
         }
     }
     
-    /**
-     * Displays a specific players section of the board.
-     * @param ply the player to display the section of the board
-     */
     public void printPlayerBoard( Player ply ){
         int i = 0;
         boolean empty = true;
