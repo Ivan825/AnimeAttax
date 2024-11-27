@@ -11,7 +11,7 @@ import utility.Util;
 
 public class Board {
     private final HashMap<Player, ArrayList<Card>> boardmap;
-    private final Player[] players;
+    private final Player[] players; //future scope of adding more than two players
 
     public Board(Game game, Player[] players){
         boardmap = new HashMap<Player, ArrayList<Card>>();
@@ -85,8 +85,8 @@ public class Board {
         
         return null;
     }
-turn total board power
-     */
+    
+    //return total board power
     public int getTotalPlayerPower( Player ply ){
         int t = 0;
         for( Card c : boardmap.get(ply) ){
@@ -99,9 +99,7 @@ turn total board power
         return boardmap.get(ply).size();
     }
     
-    /**
-     * Displays the board in console.
-     */
+    //Displays the board in console.
     public void printBoard(){
         for( Player ply : players ){
             int i = 0;
