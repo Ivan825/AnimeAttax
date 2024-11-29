@@ -57,6 +57,7 @@ javafx.media/com.sun.media.jfxmediaimpl=ALL-UNNAMED
 5. Delete any module-info.java if  generated
 6. Run the run configuration.
 
+### Demo Images (GUI):
 <img width="939" alt="Screenshot 2024-11-29 at 4 36 23 PM" src="https://github.com/user-attachments/assets/a9e2eb3c-3eff-475e-a82a-ba10764c0475">
 <img width="1001" alt="Screenshot 2024-11-29 at 4 36 38 PM" src="https://github.com/user-attachments/assets/e27f8df1-48e6-47f9-a475-b02e5af87328">
 <img width="1004" alt="Screenshot 2024-11-29 at 4 37 00 PM" src="https://github.com/user-attachments/assets/d9754cfe-aaf6-44ea-9b06-f5dbf33e2369">
