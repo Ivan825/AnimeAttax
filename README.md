@@ -56,6 +56,10 @@ javafx.media/com.sun.media.jfxmediaimpl=ALL-UNNAMED
 4. Add a before launch build task in edit configuration itself.
 5. Delete any module-info.java if  generated
 6. Run the run configuration.
+---
+### Full Documentation (JavaDocs): 
+    https://html-preview.github.io/?url=https://github.com/Ivan825/AnimeAttax/blob/main/allpackages-index.html
+---
 
 ### Demo Images (GUI):
 <img width="939" alt="Screenshot 2024-11-29 at 4 36 23 PM" src="https://github.com/user-attachments/assets/a9e2eb3c-3eff-475e-a82a-ba10764c0475">
