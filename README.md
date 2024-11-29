@@ -54,4 +54,4 @@ javafx.media/com.sun.media.jfxmediaimpl=ALL-UNNAMED
 4. Add a before launch build task in edit configuration itself.
 5. Delete any module-info.java if  generated
 6. Run the run configuration.
-7. 
+
